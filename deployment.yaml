@@ -23,16 +23,19 @@ spec:
         resources: {}
 status: {}
 ---
+
 apiVersion: v1
 kind: Service
 metadata:
-  name: nodeport
-  labels:
-    app: flaskdemo
+  name: deployment-srv
 spec:
-  type: nodeport
-  ports:
-  - port: 80
-    targetPort: 350001
+  type: NodePort
   selector:
     app: flaskdemo
+    
+  ports:
+    - name: dep
+      nodePort: 31050
+      port: 
+      targetPort:
+    
